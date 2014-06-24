@@ -9,6 +9,7 @@
     <script src="recipes.js" type="text/javascript"></script>
     <script src="resources.js" type="text/javascript"></script>
     <script src="inserters.js" type="text/javascript"></script>
+    <script src="factories.js" type="text/javascript"></script>
     <script src="logic.js" type="text/javascript"></script>
 </head>
 <body>
@@ -39,13 +40,34 @@
                     ]
                 },
                 {
-                    view: "treetable",
-                    id: "recipe_tree",
-                    columns: [
-                        {id: "speed", header: "u/m", width: 100},
-                        {id: "name", header: "Produced item", template: "{common.treetable()} #value#", width: 200}
+                    view: "tabview",
+                    animate: false,
+                    cells: [
+                        {
+                            header: "Recipe view",
+                            body: {
+                                view: "treetable",
+                                id: "recipe_tree",
+                                columns: [
+                                    {id: "speed", header: "u/m", template: renderSpeed, width: 100},
+                                    {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300},
+                                    {id: "item", header: "Factory", template: renderFactory, fillspace: true }
+                                ]
+                            }
+                        },
+                        {
+                            header: "Ratio view",
+                            body: {
+                                view: "treetable",
+                                id: "ratio_tree",
+                                columns: [
+                                    {id: "speed", header: "u/m", template: renderSpeed, width: 100},
+                                    {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300}
+                                ]
+                            }
+                        }
                     ]
-                },
+                }
             ]
         });
 

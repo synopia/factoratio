@@ -4,7 +4,7 @@ recipes =
         "id": "small_electric_pole",
         "name": "Small electric pole",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -21,7 +21,7 @@ recipes =
         "id": "gun_turret",
         "name": "Gun turret",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "crafting",
         "ingredients": [
             [
@@ -40,9 +40,9 @@ recipes =
     },
     "processing_unit": {
         "id": "processing_unit",
-        "name": "processing unit",
+        "name": "Processing Unit",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting-with-fluid",
         "ingredients": [
             [
@@ -63,7 +63,7 @@ recipes =
         "id": "radar",
         "name": "Radar",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -84,7 +84,7 @@ recipes =
         "id": "diesel_locomotive",
         "name": "Diesel Locomotive",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -105,7 +105,7 @@ recipes =
         "id": "stone_furnace",
         "name": "Stone Furnace",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -118,7 +118,7 @@ recipes =
         "id": "car",
         "name": "Car",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -139,7 +139,7 @@ recipes =
         "id": "pipe",
         "name": "Pipe",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -152,7 +152,7 @@ recipes =
         "id": "solid_fuel_from_light_oil",
         "name": "solid fuel from light oil",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "chemistry",
         "ingredients": [
             [
@@ -165,7 +165,7 @@ recipes =
         "id": "copper_cable",
         "name": "Copper cable",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -178,7 +178,7 @@ recipes =
         "id": "cargo_wagon",
         "name": "Cargo wagon",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -199,7 +199,7 @@ recipes =
         "id": "wood",
         "name": "Wood",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -212,7 +212,7 @@ recipes =
         "id": "rocket",
         "name": "Rocket",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -233,7 +233,7 @@ recipes =
         "id": "big_electric_pole",
         "name": "Big electric pole",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -248,9 +248,9 @@ recipes =
     },
     "chemical_plant": {
         "id": "chemical_plant",
-        "name": "chemical plant",
+        "name": "Chemical plant",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -275,7 +275,7 @@ recipes =
         "id": "roboport",
         "name": "Roboport",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -296,7 +296,7 @@ recipes =
         "id": "basic_transport_belt",
         "name": "Transport Belt",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -313,7 +313,7 @@ recipes =
         "id": "heavy_armor",
         "name": "Heavy armor",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -328,9 +328,9 @@ recipes =
     },
     "empty_barrel": {
         "id": "empty_barrel",
-        "name": "empty barrel",
+        "name": "Empty Barrel",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting",
         "ingredients": [
             [
@@ -343,7 +343,7 @@ recipes =
         "id": "light_oil_cracking",
         "name": "light oil cracking",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "chemistry",
         "ingredients": [
             [
@@ -360,7 +360,7 @@ recipes =
         "id": "fast_splitter",
         "name": "Fast Splitter",
         "resultCount": 1,
-        "duration": 2.0,
+        "speed": 0.5,
         "category": "crafting",
         "ingredients": [
             [
@@ -381,7 +381,7 @@ recipes =
         "id": "basic_electric_discharge_defense_equipment",
         "name": "Discharge defense",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -400,9 +400,9 @@ recipes =
     },
     "rocket_defense": {
         "id": "rocket_defense",
-        "name": "Rocket defense is needed to defend the landing of our ships.",
+        "name": "Rocket defense",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -429,9 +429,9 @@ recipes =
     },
     "productivity_module": {
         "id": "productivity_module",
-        "name": "Productivity modules push the machine productivity to the limit (Enables to make more products from the same amount of ingredients) but they increase the energy consumption.",
+        "name": "Productivity module",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -446,9 +446,9 @@ recipes =
     },
     "offshore_pump": {
         "id": "offshore_pump",
-        "name": "offshore pump",
+        "name": "Offshore Pump",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -467,9 +467,9 @@ recipes =
     },
     "storage_tank": {
         "id": "storage_tank",
-        "name": "storage tank",
+        "name": "Storage Tank",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -486,7 +486,7 @@ recipes =
         "id": "night_vision_equipment",
         "name": "Night vision",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -503,7 +503,7 @@ recipes =
         "id": "steel_axe",
         "name": "Steel axe",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -520,7 +520,7 @@ recipes =
         "id": "destroyer_capsule",
         "name": "Destroyer capsule",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -535,9 +535,9 @@ recipes =
     },
     "energy_shield_mk2_equipment": {
         "id": "energy_shield_mk2_equipment",
-        "name": "Energy shield MK2 equipment",
+        "name": "Energy shield MK2",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -554,7 +554,7 @@ recipes =
         "id": "basic_bullet_magazine",
         "name": "Regular Magazine",
         "resultCount": 1.0,
-        "duration": 2.0,
+        "speed": 0.5,
         "category": "crafting",
         "ingredients": [
             [
@@ -565,9 +565,9 @@ recipes =
     },
     "logistic_chest_passive_provider": {
         "id": "logistic_chest_passive_provider",
-        "name": "logistic chest passive provider",
+        "name": "Passive Provider Chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -584,7 +584,7 @@ recipes =
         "id": "power_armor_mk2",
         "name": "Power armor MK2",
         "resultCount": 1,
-        "duration": 25.0,
+        "speed": 0.04,
         "category": "crafting",
         "ingredients": [
             [
@@ -613,7 +613,7 @@ recipes =
         "id": "curved_rail",
         "name": "Curved Rail",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -634,7 +634,7 @@ recipes =
         "id": "substation",
         "name": "Substation",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -655,7 +655,7 @@ recipes =
         "id": "basic_beacon",
         "name": "Basic Beacon",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -680,7 +680,7 @@ recipes =
         "id": "poison_capsule",
         "name": "Poison capsule",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -701,7 +701,7 @@ recipes =
         "id": "basic_mining_drill",
         "name": "Electric Mining Drill",
         "resultCount": 1,
-        "duration": 2.0,
+        "speed": 0.5,
         "category": "crafting",
         "ingredients": [
             [
@@ -722,7 +722,7 @@ recipes =
         "id": "shotgun_shell",
         "name": "Shotgun shells",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -739,7 +739,7 @@ recipes =
         "id": "basic_accumulator",
         "name": "Basic accumulator",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -756,7 +756,7 @@ recipes =
         "id": "red_wire",
         "name": "Red wire",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -773,7 +773,7 @@ recipes =
         "id": "assembling_machine_3",
         "name": "Assembling machine 3",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -790,7 +790,7 @@ recipes =
         "id": "heavy_oil_cracking",
         "name": "heavy oil cracking",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "chemistry",
         "ingredients": [
             [
@@ -805,9 +805,9 @@ recipes =
     },
     "lubricant": {
         "id": "lubricant",
-        "name": "lubricant",
+        "name": "Lubricant",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "chemistry",
         "ingredients": [
             [
@@ -820,7 +820,7 @@ recipes =
         "id": "productivity_module_2",
         "name": "Productivity module 2",
         "resultCount": 1,
-        "duration": 30.0,
+        "speed": 0.03333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -839,9 +839,9 @@ recipes =
     },
     "oil_refinery": {
         "id": "oil_refinery",
-        "name": "oil refinery",
+        "name": "Oil refinery",
         "resultCount": 1,
-        "duration": 20.0,
+        "speed": 0.05,
         "category": "crafting",
         "ingredients": [
             [
@@ -870,7 +870,7 @@ recipes =
         "id": "basic_splitter",
         "name": "Splitter",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting",
         "ingredients": [
             [
@@ -891,7 +891,7 @@ recipes =
         "id": "burner_mining_drill",
         "name": "Burner Mining Drill",
         "resultCount": 1,
-        "duration": 2.0,
+        "speed": 0.5,
         "category": "crafting",
         "ingredients": [
             [
@@ -912,7 +912,7 @@ recipes =
         "id": "wall",
         "name": "Wall",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -925,7 +925,7 @@ recipes =
         "id": "assembling_machine_1",
         "name": "Assembling machine 1",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -946,7 +946,7 @@ recipes =
         "id": "logistic_chest_requester",
         "name": "Requester Chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -963,7 +963,7 @@ recipes =
         "id": "green_wire",
         "name": "Green wire",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -978,9 +978,9 @@ recipes =
     },
     "effectivity_module": {
         "id": "effectivity_module",
-        "name": "Effectivity modules decrease the energy consumption of machines.",
+        "name": "Effectivity module",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -997,7 +997,7 @@ recipes =
         "id": "steel_plate",
         "name": "Steel Plate",
         "resultCount": 1,
-        "duration": 17.5,
+        "speed": 0.05714285714285714,
         "category": "smelting",
         "ingredients": [
             [
@@ -1010,7 +1010,7 @@ recipes =
         "id": "solid_fuel_from_heavy_oil",
         "name": "solid fuel from heavy oil",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "chemistry",
         "ingredients": [
             [
@@ -1023,7 +1023,7 @@ recipes =
         "id": "speed_module_2",
         "name": "Speed module 2",
         "resultCount": 1,
-        "duration": 30.0,
+        "speed": 0.03333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -1044,7 +1044,7 @@ recipes =
         "id": "laser_turret",
         "name": "Laser Turret",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1065,7 +1065,7 @@ recipes =
         "id": "boiler",
         "name": "Boiler",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1082,7 +1082,7 @@ recipes =
         "id": "construction_robot",
         "name": "Construction robot",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1099,7 +1099,7 @@ recipes =
         "id": "rail_signal",
         "name": "Rail signal",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1116,7 +1116,7 @@ recipes =
         "id": "express_splitter",
         "name": "Express Splitter",
         "resultCount": 1,
-        "duration": 2.0,
+        "speed": 0.5,
         "category": "crafting",
         "ingredients": [
             [
@@ -1135,9 +1135,9 @@ recipes =
     },
     "plastic_bar": {
         "id": "plastic_bar",
-        "name": "plastic bar",
+        "name": "Plastic bar",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "chemistry",
         "ingredients": [
             [
@@ -1154,7 +1154,7 @@ recipes =
         "id": "electric_furnace",
         "name": "Electric Furnace",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1175,7 +1175,7 @@ recipes =
         "id": "steel_furnace",
         "name": "Steel Furnace",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -1192,7 +1192,7 @@ recipes =
         "id": "pistol",
         "name": "Pistol",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting",
         "ingredients": [
             [
@@ -1209,7 +1209,7 @@ recipes =
         "id": "express_transport_belt_to_ground",
         "name": "Express underground belt",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1226,7 +1226,7 @@ recipes =
         "id": "iron_axe",
         "name": "Iron axe",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1241,9 +1241,9 @@ recipes =
     },
     "small_plane": {
         "id": "small_plane",
-        "name": "small plane",
+        "name": "Small plane",
         "resultCount": 1,
-        "duration": 30.0,
+        "speed": 0.03333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -1268,7 +1268,7 @@ recipes =
         "id": "express_transport_belt",
         "name": "Express Transport Belt",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting-with-fluid",
         "ingredients": [
             [
@@ -1289,7 +1289,7 @@ recipes =
         "id": "fast_transport_belt",
         "name": "Fast Transport Belt",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1306,7 +1306,7 @@ recipes =
         "id": "advanced_circuit",
         "name": "Advanced Circuit",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -1327,7 +1327,7 @@ recipes =
         "id": "shotgun",
         "name": "Shotgun",
         "resultCount": 1,
-        "duration": 4.0,
+        "speed": 0.25,
         "category": "crafting",
         "ingredients": [
             [
@@ -1350,9 +1350,9 @@ recipes =
     },
     "sulfuric_acid": {
         "id": "sulfuric_acid",
-        "name": "sulfuric acid",
+        "name": "Sulfuric acid",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "chemistry",
         "ingredients": [
             [
@@ -1373,7 +1373,7 @@ recipes =
         "id": "basic_inserter",
         "name": "Inserter",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1394,7 +1394,7 @@ recipes =
         "id": "solar_panel_equipment",
         "name": "Portable solar panel",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -1415,7 +1415,7 @@ recipes =
         "id": "electronic_circuit",
         "name": "Electronic Circuit",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1432,7 +1432,7 @@ recipes =
         "id": "pipe_to_ground",
         "name": "Pipe-to-Ground",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1449,7 +1449,7 @@ recipes =
         "id": "train_stop",
         "name": "Train stop",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1468,9 +1468,9 @@ recipes =
     },
     "battery_mk2_equipment": {
         "id": "battery_mk2_equipment",
-        "name": "Battery equipment MK2",
+        "name": "Battery MK2",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -1487,7 +1487,7 @@ recipes =
         "id": "explosives",
         "name": "Explosives",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "chemistry",
         "ingredients": [
             [
@@ -1508,7 +1508,7 @@ recipes =
         "id": "slowdown_capsule",
         "name": "Slowdown capsule",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -1527,9 +1527,9 @@ recipes =
     },
     "land_mine": {
         "id": "land_mine",
-        "name": "Land mines",
+        "name": "Land mine",
         "resultCount": 4.0,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1546,7 +1546,7 @@ recipes =
         "id": "basic_armor",
         "name": "Iron armor",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -1559,7 +1559,7 @@ recipes =
         "id": "combat_shotgun",
         "name": "Combat shotgun",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -1584,7 +1584,7 @@ recipes =
         "id": "assembling_machine_2",
         "name": "Assembling machine 2",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1607,9 +1607,9 @@ recipes =
     },
     "pumpjack": {
         "id": "pumpjack",
-        "name": "pumpjack",
+        "name": "Pumpjack",
         "resultCount": 1,
-        "duration": 20.0,
+        "speed": 0.05,
         "category": "crafting",
         "ingredients": [
             [
@@ -1632,9 +1632,9 @@ recipes =
     },
     "flying_robot_frame": {
         "id": "flying_robot_frame",
-        "name": "flying robot frame",
+        "name": "Flying robot frame",
         "resultCount": 1,
-        "duration": 20.0,
+        "speed": 0.05,
         "category": "crafting",
         "ingredients": [
             [
@@ -1659,7 +1659,7 @@ recipes =
         "id": "smart_chest",
         "name": "Smart Chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1674,9 +1674,9 @@ recipes =
     },
     "deconstruction_planner": {
         "id": "deconstruction_planner",
-        "name": "deconstruction planner",
+        "name": "Deconstruction planner",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting",
         "ingredients": [
             [
@@ -1689,7 +1689,7 @@ recipes =
         "id": "basic_transport_belt_to_ground",
         "name": "Underground belt",
         "resultCount": 2.0,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting",
         "ingredients": [
             [
@@ -1706,7 +1706,7 @@ recipes =
         "id": "fast_inserter",
         "name": "Fast inserter",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1727,7 +1727,7 @@ recipes =
         "id": "explosive_rocket",
         "name": "Explosive rocket",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -1744,7 +1744,7 @@ recipes =
         "id": "distractor_capsule",
         "name": "Distractor capsule",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -1761,7 +1761,7 @@ recipes =
         "id": "smart_inserter",
         "name": "Smart inserter",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1778,7 +1778,7 @@ recipes =
         "id": "fusion_reactor_equipment",
         "name": "Portable fusion reactor",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -1795,7 +1795,7 @@ recipes =
         "id": "iron_gear_wheel",
         "name": "Iron Gear Wheel",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1808,7 +1808,7 @@ recipes =
         "id": "basic_electric_discharge_defense_remote",
         "name": "Basic electric discharge defense remote",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1819,9 +1819,9 @@ recipes =
     },
     "speed_module": {
         "id": "speed_module",
-        "name": "Speed modules push the machine speed to the limit but they increase the energy consumption",
+        "name": "Speed module",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -1838,7 +1838,7 @@ recipes =
         "id": "burner_inserter",
         "name": "Burner Inserter",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1855,7 +1855,7 @@ recipes =
         "id": "logistic_chest_storage",
         "name": "Storage Chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1872,7 +1872,7 @@ recipes =
         "id": "steel_chest",
         "name": "Steel Chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1885,7 +1885,7 @@ recipes =
         "id": "submachine_gun",
         "name": "Submachine gun",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -1906,7 +1906,7 @@ recipes =
         "id": "stone_brick",
         "name": "Stone Brick",
         "resultCount": 1,
-        "duration": 3.5,
+        "speed": 0.2857142857142857,
         "category": "smelting",
         "ingredients": [
             [
@@ -1919,7 +1919,7 @@ recipes =
         "id": "power_armor",
         "name": "Power armor",
         "resultCount": 1,
-        "duration": 20.0,
+        "speed": 0.05,
         "category": "crafting",
         "ingredients": [
             [
@@ -1944,7 +1944,7 @@ recipes =
         "id": "fast_transport_belt_to_ground",
         "name": "Fast underground belt",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -1961,7 +1961,7 @@ recipes =
         "id": "flame_thrower_ammo",
         "name": "Flamethrower Ammo",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "chemistry",
         "ingredients": [
             [
@@ -1982,7 +1982,7 @@ recipes =
         "id": "basic_modular_armor",
         "name": "Basic modular armor",
         "resultCount": 1,
-        "duration": 15.0,
+        "speed": 0.06666666666666667,
         "category": "crafting",
         "ingredients": [
             [
@@ -2003,7 +2003,7 @@ recipes =
         "id": "straight_rail",
         "name": "Straight Rail",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2024,7 +2024,7 @@ recipes =
         "id": "medium_electric_pole",
         "name": "Medium electric pole",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2039,9 +2039,9 @@ recipes =
     },
     "engine_unit": {
         "id": "engine_unit",
-        "name": "engine unit",
+        "name": "Engine unit",
         "resultCount": 1,
-        "duration": 20.0,
+        "speed": 0.05,
         "category": "advanced-crafting",
         "ingredients": [
             [
@@ -2060,9 +2060,9 @@ recipes =
     },
     "electric_engine_unit": {
         "id": "electric_engine_unit",
-        "name": "electric engine unit",
+        "name": "Electric engine unit",
         "resultCount": 1,
-        "duration": 20.0,
+        "speed": 0.05,
         "category": "crafting-with-fluid",
         "ingredients": [
             [
@@ -2081,9 +2081,9 @@ recipes =
     },
     "flame_thrower": {
         "id": "flame_thrower",
-        "name": "Flame thrower",
+        "name": "Flamethrower",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -2100,7 +2100,7 @@ recipes =
         "id": "advanced_oil_processing",
         "name": "advanced oil processing",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "oil-processing",
         "ingredients": [
             [
@@ -2117,7 +2117,7 @@ recipes =
         "id": "productivity_module_3",
         "name": "Productivity module 3",
         "resultCount": 1,
-        "duration": 60.0,
+        "speed": 0.016666666666666666,
         "category": "crafting",
         "ingredients": [
             [
@@ -2142,7 +2142,7 @@ recipes =
         "id": "copper_plate",
         "name": "Copper Plate",
         "resultCount": 1,
-        "duration": 3.5,
+        "speed": 0.2857142857142857,
         "category": "smelting",
         "ingredients": [
             [
@@ -2155,7 +2155,7 @@ recipes =
         "id": "effectivity_module_3",
         "name": "Effectivity module 3",
         "resultCount": 1,
-        "duration": 60.0,
+        "speed": 0.016666666666666666,
         "category": "crafting",
         "ingredients": [
             [
@@ -2180,7 +2180,7 @@ recipes =
         "id": "solar_panel",
         "name": "Solar Panel",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2199,9 +2199,9 @@ recipes =
     },
     "logistic_chest_active_provider": {
         "id": "logistic_chest_active_provider",
-        "name": "logistic chest active provider",
+        "name": "Active Provider Chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2218,7 +2218,7 @@ recipes =
         "id": "basic_exoskeleton_equipment",
         "name": "Basic exoskeleton equipment",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -2239,7 +2239,7 @@ recipes =
         "id": "railgun",
         "name": "Railgun",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -2264,7 +2264,7 @@ recipes =
         "id": "fill_crude_oil_barrel",
         "name": "fill crude oil barrel",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting-with-fluid",
         "ingredients": [
             [
@@ -2281,7 +2281,7 @@ recipes =
         "id": "logistic_robot",
         "name": "Logistic robot",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2296,9 +2296,9 @@ recipes =
     },
     "blueprint": {
         "id": "blueprint",
-        "name": "blueprint",
+        "name": "Blueprint",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting",
         "ingredients": [
             [
@@ -2311,7 +2311,7 @@ recipes =
         "id": "repair_pack",
         "name": "Repair pack",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2328,7 +2328,7 @@ recipes =
         "id": "science_pack_1",
         "name": "Science Pack 1",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2345,7 +2345,7 @@ recipes =
         "id": "defender_capsule",
         "name": "Defender capsule",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -2366,7 +2366,7 @@ recipes =
         "id": "speed_module_3",
         "name": "Speed module 3",
         "resultCount": 1,
-        "duration": 60.0,
+        "speed": 0.016666666666666666,
         "category": "crafting",
         "ingredients": [
             [
@@ -2391,7 +2391,7 @@ recipes =
         "id": "empty_crude_oil_barrel",
         "name": "empty crude oil barrel",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "crafting-with-fluid",
         "ingredients": [
             [
@@ -2402,9 +2402,9 @@ recipes =
     },
     "energy_shield_equipment": {
         "id": "energy_shield_equipment",
-        "name": "Energy shield equipment",
+        "name": "Energy shield",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -2421,7 +2421,7 @@ recipes =
         "id": "basic_oil_processing",
         "name": "basic oil processing",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "oil-processing",
         "ingredients": [
             [
@@ -2434,7 +2434,7 @@ recipes =
         "id": "long_handed_inserter",
         "name": "Long handed inserter",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2455,7 +2455,7 @@ recipes =
         "id": "alien_science_pack",
         "name": "Alien science pack",
         "resultCount": 10.0,
-        "duration": 12.0,
+        "speed": 0.08333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -2468,7 +2468,7 @@ recipes =
         "id": "piercing_bullet_magazine",
         "name": "Piercing Rounds Magazine",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -2485,7 +2485,7 @@ recipes =
         "id": "rocket_launcher",
         "name": "Rocket launcher",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2506,7 +2506,7 @@ recipes =
         "id": "piercing_shotgun_shell",
         "name": "Piercing shotgun shells",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -2521,9 +2521,9 @@ recipes =
     },
     "battery": {
         "id": "battery",
-        "name": "battery",
+        "name": "Battery",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "chemistry",
         "ingredients": [
             [
@@ -2542,9 +2542,9 @@ recipes =
     },
     "small_pump": {
         "id": "small_pump",
-        "name": "small pump",
+        "name": "Small Pump",
         "resultCount": 1,
-        "duration": 2.0,
+        "speed": 0.5,
         "category": "crafting",
         "ingredients": [
             [
@@ -2565,7 +2565,7 @@ recipes =
         "id": "basic_grenade",
         "name": "Basic grenade",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -2582,7 +2582,7 @@ recipes =
         "id": "basic_laser_defense_equipment",
         "name": "Personal laser defense",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
@@ -2603,7 +2603,7 @@ recipes =
         "id": "small_lamp",
         "name": "Lamp",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2624,7 +2624,7 @@ recipes =
         "id": "railgun_dart",
         "name": "Railgun darts",
         "resultCount": 1,
-        "duration": 8.0,
+        "speed": 0.125,
         "category": "crafting",
         "ingredients": [
             [
@@ -2641,7 +2641,7 @@ recipes =
         "id": "solid_fuel_from_petroleum_gas",
         "name": "solid fuel from petroleum gas",
         "resultCount": 1,
-        "duration": 3.0,
+        "speed": 0.3333333333333333,
         "category": "chemistry",
         "ingredients": [
             [
@@ -2654,7 +2654,7 @@ recipes =
         "id": "steam_engine",
         "name": "Steam engine",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2675,7 +2675,7 @@ recipes =
         "id": "iron_plate",
         "name": "Iron Plate",
         "resultCount": 1,
-        "duration": 3.5,
+        "speed": 0.2857142857142857,
         "category": "smelting",
         "ingredients": [
             [
@@ -2688,7 +2688,7 @@ recipes =
         "id": "iron_chest",
         "name": "Iron Chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2701,7 +2701,7 @@ recipes =
         "id": "science_pack_2",
         "name": "Science Pack 2",
         "resultCount": 1,
-        "duration": 6.0,
+        "speed": 0.16666666666666666,
         "category": "crafting",
         "ingredients": [
             [
@@ -2718,7 +2718,7 @@ recipes =
         "id": "wooden_chest",
         "name": "Wooden chest",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2731,7 +2731,7 @@ recipes =
         "id": "science_pack_3",
         "name": "Science Pack 3",
         "resultCount": 1,
-        "duration": 12.0,
+        "speed": 0.08333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -2756,7 +2756,7 @@ recipes =
         "id": "player_port",
         "name": "Player port",
         "resultCount": 1,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2777,7 +2777,7 @@ recipes =
         "id": "lab",
         "name": "Lab",
         "resultCount": 1,
-        "duration": 5.0,
+        "speed": 0.2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2798,7 +2798,7 @@ recipes =
         "id": "iron_stick",
         "name": "Iron Stick",
         "resultCount": 2.0,
-        "duration": 0.5,
+        "speed": 2,
         "category": "crafting",
         "ingredients": [
             [
@@ -2811,7 +2811,7 @@ recipes =
         "id": "effectivity_module_2",
         "name": "Effectivity module 2",
         "resultCount": 1,
-        "duration": 30.0,
+        "speed": 0.03333333333333333,
         "category": "crafting",
         "ingredients": [
             [
@@ -2830,9 +2830,9 @@ recipes =
     },
     "sulfur": {
         "id": "sulfur",
-        "name": "sulfur",
+        "name": "Sulfur",
         "resultCount": 1,
-        "duration": 1.0,
+        "speed": 1.0,
         "category": "chemistry",
         "ingredients": [
             [
@@ -2847,9 +2847,9 @@ recipes =
     },
     "battery_equipment": {
         "id": "battery_equipment",
-        "name": "Battery equipment",
+        "name": "Battery",
         "resultCount": 1,
-        "duration": 10.0,
+        "speed": 0.1,
         "category": "crafting",
         "ingredients": [
             [
