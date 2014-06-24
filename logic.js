@@ -9,12 +9,16 @@ selectRecipes.sort(function(a,b){
     return a["value"].localeCompare(b["value"])
 });
 
-
+totalRequested = {};
 id = 0;
 function buildTree(item, targetSpeed) {
     var data = [];
     var recipe = recipes[item];
-    var name = item
+    var name = item;
+    if( totalRequested[item]==null ) {
+        totalRequested[item] = 0;
+    }
+    totalRequested[item] += targetSpeed;
     if( recipe ) {
         $.each(recipe.ingredients, function (index, list) {
             var item = list[0];
@@ -23,7 +27,7 @@ function buildTree(item, targetSpeed) {
         });
         name = recipes[item].name
     } else {
-        var resource = resources[item]
+        var resource = resources[item];
         if( resource ) {
             name = resource.name
         }
@@ -40,6 +44,7 @@ function update() {
     $$("recipe_tree").clearAll();
     $$("recipe_tree").parse(data);
 
+    console.log(totalRequested)
 }
 
 
