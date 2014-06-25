@@ -26,40 +26,13 @@ function findFactories( item ) {
     return result;
 }
 
-function selected(_, item, speed) {
-    var factory = factories[_.val()];
-    var recipe = recipes[item];
-    var resource = resources[item];
+function getFactoryCount(factory, recipe, speed) {
     if( recipe ) {
-        console.log(speed/(recipe.speed*factory.speed));
-    } else if( resource ) {
-        console.log(speed/factory.speed);
+        return speed/(recipe.speed*factory.speed);
+    } else {
+        return speed/factory.speed;
     }
 }
-function renderFactory(line, common) {
-    var item = line.item;
-    var factories = findFactories(item);
-    var result = "<select onchange='selected($(this), \""+item+"\", "+line.speed+")'>";
-    $.each(factories, function(index, factory){
-        result += "<option value=\""+factory.id+"\">"+factory.name+" ("+renderSpeed(factory)+"u/m)</option>";
-    });
-    result += "</select>";
-
-//    var recipe = recipes[line.item];
-//    if( recipe ) {
-//        var speed = recipe.speed;
-//        var count = line.speed / speed;
-//        return count.toFixed(2).toString()+factories[0].name.toString()
-//        return result;
-//    } else {
-//
-//    }
-    return result;
-}
-function renderSpeed(line, common) {
-    return +(60.0*line.speed).toFixed(2).toString()
-}
-
 
 selectRecipes = [];
 $.each(recipes, function(name, recipe){
@@ -78,10 +51,6 @@ function getName(item) {
     } else {
         return item
     }
-}
-
-function formatPercent(percent) {
-    return (+(100.0*percent).toFixed(0)) + "%"
 }
 
 productions = {};
@@ -131,14 +100,28 @@ function buildRatioTree() {
 
 function update() {
     var recipe = $$("selected_recipe").getValue();
-    var speed = $$("selected_recipe_speed").getValue()/60;
+    var speed = 1; //$$("selected_recipe_speed").getValue()/60;
     productions = {};
     var recipeTree = [ buildTree(null, recipe, speed) ];
     var ratioTree = buildRatioTree();
     $$("recipe_tree").clearAll();
-    $$("recipe_tree").parse(recipeTree);
+    var rtree = $$("recipe_tree").parse(recipeTree);
+    console.log(rtree)
     $$("ratio_tree").clearAll();
     $$("ratio_tree").parse(ratioTree);
+
+    updateSpeed();
+}
+
+function updateSpeed() {
+    var speed = $$("selected_recipe_speed").getValue()/60;
+
+    $(".speed").each(function(){
+        var data = $(this).attr("data");
+        var itemSpeed = +(60.0 * data*speed).toFixed(2).toString();
+        $(this).text(itemSpeed)
+    });
+
 }
 
 

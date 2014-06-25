@@ -111,7 +111,7 @@ factories =
     "pumpjack": {
         "id": "pumpjack",
         "name": "Pumpjack",
-        "speed": 1,
+        "speed": 10,
         "categories": [
             "fluid"
         ]

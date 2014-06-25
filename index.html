@@ -11,6 +11,7 @@
     <script src="inserters.js" type="text/javascript"></script>
     <script src="factories.js" type="text/javascript"></script>
     <script src="logic.js" type="text/javascript"></script>
+    <script src="render.js" type="text/javascript"></script>
 </head>
 <body>
     <script type="text/javascript" charset="utf-8">
@@ -33,7 +34,7 @@
                             title:webix.template("#value# u/m"),
                             on: {
                                 onSliderDrag: function () {
-                                    update();
+                                    updateSpeed();
                                 }
                             }
                         }
@@ -51,7 +52,8 @@
                                 columns: [
                                     {id: "speed", header: "u/m", template: renderSpeed, width: 100},
                                     {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300},
-                                    {id: "item", header: "Factory", template: renderFactory, fillspace: true }
+                                    {id: "item", header: "Factory", template: renderFactory, width: 300 },
+                                    {id: "count", header: "Count", template: renderCount, fillspace: true},
                                 ]
                             }
                         },
