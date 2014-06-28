@@ -67,10 +67,12 @@ var ui_scheme = {
                     body: {
                         view: "treetable",
                         id: "ratio_tree",
+                        editable: true,
+                        editaction: 'click',
                         columns: [
-                            {id: "speed", header: "u/m", format: helpers.speedFormat, width: 100},
+                            {id: "targetSpeed", header: "u/m", format: helpers.speedFormat, width: 100},
                             {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300},
-                            {id: "count", header: "Count", format: logic.renderCount, width: 100 },
+                            {id: "count", header: "Count", template: logic.renderCount, width: 100 },
                             {id: "factorySpeed", header: "u/m/factory",  format: helpers.speedFormat, width: 100},
                             {id: "factory", header: "Factory",  editor: 'myselect', width: 300, template: helpers.renderFactory, options:logic.selectFactories},
                             {id: "inputInserters", header: "Input inserters",  editor: 'myselect', width: 300, template: helpers.renderInputInserters, options:logic.selectInserters},
