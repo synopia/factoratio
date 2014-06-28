@@ -1,127 +1,193 @@
 /**
  * Created by synopia on 23/06/14.
  */
-function findFactories( item ) {
-    var result = [];
-    var recipe = recipes[item];
-    var resource = resources[item];
-    if( recipe ) {
-        $.each(factories, function (name, factory) {
-            if (factory.categories.indexOf(recipe.category) != -1) {
-                if (factory.ingredientCount >= recipe.ingredients.length) {
-                    result.push(factory);
+
+
+webix.editors.myselect = webix.extend({
+    focus:function(){},
+    getValue:function(){
+        return this.getInputNode().getSelectedId().id||this.getInputNode().getSelectedId()||"";
+    },
+    setValue:function(value){
+        var suggest =  this.config.collection || this.config.options(logic.editingId);
+        var list = this.getInputNode();
+        if (suggest)
+            this.getPopup().getList().data.importData(suggest);
+
+        this.getPopup().show(this.node);
+        if(value){
+            webix.assert(list.exists(value), "Option with ID "+value+" doesn't exist");
+            if(list.exists(value)){
+                list.select(value);
+                list.showItem(value);
+            }
+        }else{
+            list.unselect();
+            list.showItem(list.getFirstId());
+        }
+    },
+    getInputNode:function(){
+        return this.getPopup().getList();
+    },
+    popupInit:function(popup){
+        popup.attachEvent("onValueSuggest", function(data){
+            webix.delay(function(){
+                webix.callEvent("onEditEnd",[data.id]);
+            });
+        });
+        popup.linkInput(document.body);
+    },
+    popupType:"richselect"
+}, webix.editors.popup);
+
+
+var logic = {    
+    targetSpeed : 0,
+    editingId : null,
+    init: function() {
+        $$("recipe_tree").attachEvent("onBeforeEditStart", function(id) {
+            logic.editingId = id;
+        });
+
+        $$("recipe_tree").attachEvent("onAfterEditStop", function(state, id, ignoreUpdate) {
+            if( state.value != state.old ) {
+                var line = tree.treeLines[id.row];
+                line.factorySpeed = logic.calcSpeed(line.item, line.factory, line.inputInserters, line.outputInserters);
+            }
+        });
+    },
+
+    calcSpeed : function(item, factory, inputInserters, outputInserters) {
+        var itemSpeed = 1;
+        var inputCount = 0;
+        var outputCount = 0;
+        if( recipes[item] ) {
+            $.each(recipes[item].ingredients, function(index, ingredient){
+                inputCount += ingredient[1];
+            });
+            outputCount = recipes[item].resultCount;
+            itemSpeed = recipes[item].speed;
+        } else {
+            inputCount = 1;
+            outputCount = 1;
+        }
+
+        if( factories[factory] ) {
+            var maxInputSpeed = (inputInserters ? inserters[inputInserters].speed*60 : 1000000)/inputCount;
+            var maxOutputSpeed = (outputInserters ? inserters[outputInserters].speed*60 : 1000000)/outputCount;
+            var maxSpeed = Math.min(maxInputSpeed, maxOutputSpeed);
+            return Math.min(factories[factory].speed*itemSpeed, maxSpeed);
+        } else {
+            return undefined;
+        }
+    },
+
+    optimize : function() {
+        $$("recipe_tree").eachRow( function(id){
+            var line = tree.treeLines[id];
+            var item = line.item;
+            var factories = helpers.findFactories(item);
+            var configurations = [];
+            $.each(factories, function(index, factory){
+                $.each(inserters, function(index, inserter) {
+                    if( inserter.id.indexOf("inserter")!=-1) {
+                        var speed = logic.calcSpeed(item, factory.id, inserter.id, inserter.id)
+                        configurations.push({ speed: speed, factory: factory, inserter:inserter});
+                    }
+                });
+            });
+            configurations.sort( function(a,b){
+                var cmp = b.speed - a.speed;
+                if( cmp==0 ) {
+                    cmp = b.factory.speed - a.factory.speed;
+                    if( cmp==0 ) {
+                        cmp = b.inserter.speed - a.inserter.speed;
+                    }
                 }
+                return cmp;
+            });
+            var last = null;
+            var list = [];
+            $.each( configurations, function(index, conf) {
+                if( last!=null ) {
+                    if( conf.speed!=last.speed) {
+                        list.push(last)
+                    }
+                }
+                last = conf;
+            });
+            list.push(last);
+            var best = null;
+            $.each(list, function(index, conf) {
+                var count = line.targetSpeed / conf.speed;
+                if( count<=1 ) {
+                    best = conf
+                }
+            });
+            if( best==null ) {
+                best = list[0]
             }
+            line.factory = best.factory.id;
+            line.inputInserters = best.inserter.id;
+            line.outputInserters = best.inserter.id;
+            line.factorySpeed = logic.calcSpeed(line.item, line.factory, line.inputInserters, line.outputInserters);
+        }, true);
+        $$("recipe_tree").refresh();
+    },
+
+    selectInserters: function(id) {
+        var selectedInserters = [];
+        $.each(inserters, function(index, inserter) {
+            selectedInserters.push({ id: inserter.id, value:inserter.name});
         });
-    } else if( resource ) {
-        $.each(factories, function (name, factory) {
-            if (factory.categories.indexOf(resource.category) != -1) {
-                result.push(factory);
-            }
-        });
-    }
-    result.sort(function(a,b){
-        return a.speed- b.speed;
-    });
-    return result;
-}
-
-function getFactoryCount(factory, recipe, speed) {
-    if( recipe ) {
-        return speed/(recipe.speed*factory.speed);
-    } else {
-        return speed/factory.speed;
-    }
-}
-
-selectRecipes = [];
-$.each(recipes, function(name, recipe){
-    selectRecipes.push({id:name, value:recipe.name})
-});
-
-selectRecipes.sort(function(a,b){
-    return a["value"].localeCompare(b["value"])
-});
-
-function getName(item) {
-    if( recipes[item]!=null ) {
-        return recipes[item].name;
-    } else if( resources[item]!=null ) {
-        return resources[item].name;
-    } else {
-        return item
-    }
-}
-
-productions = {};
-id = 0;
-function buildTree(parentItem, item, targetSpeed) {
-    var data = [];
-    var recipe = recipes[item];
-    var production = productions[item];
-    if( production==null ) {
-        productions[item] = production = { targetSpeed: 0, item: item, outputs: {} };
-    }
-    production.targetSpeed += targetSpeed;
-    if( parentItem ) {
-        if( production.outputs[parentItem]==null ) {
-            production.outputs[parentItem] = 0
+        return selectedInserters;
+    },
+    selectFactories : function(id) {
+        var item = tree.treeLines[id.row].item;
+        var factories = helpers.findFactories(item);
+        var selectableFactories = [];
+        var itemSpeed = 1;
+        if( recipes[item] ) {
+            itemSpeed = recipes[item].speed;
         }
-        production.outputs[parentItem] += targetSpeed;
-    }
-
-    if( recipe ) {
-        $.each(recipe.ingredients, function (index, list) {
-            var ingredient = list[0];
-            var amount = list[1];
-            data.push(buildTree(item, ingredient, targetSpeed * amount/recipe.resultCount));
+        $.each(factories, function(index, factory){
+            selectableFactories.push({ id:factory.id, value:factory.name+" ("+helpers.formatNumber(itemSpeed*factory.speed, 60)+" u/m)"});
         });
-    }
-    id++;
-    return {id:id, name:getName(item), item: item, speed:targetSpeed, open:true, data: data}
-}
+        return selectableFactories;
+    },
 
-function buildRatioTree() {
-    var data = [];
-    var id = 0;
-    $.each(productions, function(item, production) {
-        var outputs = [];
-        $.each(production.outputs, function(outputItem, speed){
-            outputs.push({ id:id, name:getName(outputItem), item: item, speed:speed});
-            id++;
-        });
-        if( outputs.length>0 ) {
-            data.push({ id: id, name: getName(item), item: item, speed: production.targetSpeed, open: true, data: outputs });
-            id++;
+    renderCount : function(line, common) {
+        if( line.factorySpeed ) {
+            var count = line.targetSpeed / line.factorySpeed;
+            return helpers.countFormat(count);
+        } else {
+            return ""
         }
-    });
-    return data;
-}
+    },
 
-function update() {
-    var recipe = $$("selected_recipe").getValue();
-    var speed = 1; //$$("selected_recipe_speed").getValue()/60;
-    productions = {};
-    var recipeTree = [ buildTree(null, recipe, speed) ];
-    var ratioTree = buildRatioTree();
-    $$("recipe_tree").clearAll();
-    var rtree = $$("recipe_tree").parse(recipeTree);
-    console.log(rtree)
-    $$("ratio_tree").clearAll();
-    $$("ratio_tree").parse(ratioTree);
+    updateRecipe : function(recipe) {
+        tree.init();
+        var recipeTree = [ tree.buildProductionTree(null, recipe, 1) ];
+        var ratioTree = tree.buildRatioTree();
 
-    updateSpeed();
-}
+        $$("recipe_tree").clearAll();
+        $$("recipe_tree").parse(recipeTree);
+        $$("ratio_tree").clearAll();
+        $$("ratio_tree").parse(ratioTree);
 
-function updateSpeed() {
-    var speed = $$("selected_recipe_speed").getValue()/60;
+        logic.updateTargetSpeed();
+    },
 
-    $(".speed").each(function(){
-        var data = $(this).attr("data");
-        var itemSpeed = +(60.0 * data*speed).toFixed(2).toString();
-        $(this).text(itemSpeed)
-    });
+    updateTargetSpeed : function( targetSpeed ) {
+        if( targetSpeed ) {
+            logic.targetSpeed = targetSpeed / 60;
+        }
+        $$("recipe_tree").eachRow( function(id){
+            var line = tree.treeLines[id];
+            line.targetSpeed = logic.targetSpeed * line.relativeSpeed;
+        }, true);
+        $$("recipe_tree").refresh();
+    }
 
-}
-
+};
 
