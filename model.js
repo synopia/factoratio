@@ -2,23 +2,23 @@
  * Created by synopia on 27.06.2014.
  */
 
-var tree = {
+var model = {
     productions : {},
     treeLines : {},
     id : 0,
 
     init : function() {
-        tree.id = 0;
-        tree.productions = {};
-        tree.treeLines = {};
+        model.id = 0;
+        model.productions = {};
+        model.treeLines = {};
     },
 
     buildProductionTree : function (parentItem, item, relativeSpeed) {
         var data = [];
         var recipe = recipes[item];
-        var production = tree.productions[item];
+        var production = model.productions[item];
         if( production==null ) {
-            tree.productions[item] = production = { relativeSpeed: 0, item: item, outputs: {} };
+            model.productions[item] = production = { relativeSpeed: 0, item: item, outputs: {} };
         }
         production.relativeSpeed += relativeSpeed;
         if( parentItem ) {
@@ -32,31 +32,31 @@ var tree = {
             $.each(recipe.ingredients, function (index, list) {
                 var ingredient = list[0];
                 var amount = list[1];
-                data.push(tree.buildProductionTree(item, ingredient, relativeSpeed * amount/recipe.resultCount));
+                data.push(model.buildProductionTree(item, ingredient, relativeSpeed * amount/recipe.resultCount));
             });
         }
-        return tree.insertLine("p", item, relativeSpeed, data);
+        return model.insertLine("p", item, relativeSpeed, data);
     },
 
     buildRatioTree : function () {
         var data = [];
-        $.each(tree.productions, function(item, production) {
+        $.each(model.productions, function(item, production) {
             var outputs = [];
             $.each(production.outputs, function(outputItem, speed){
-                var line = tree.insertLine("r", outputItem, speed);
+                var line = model.insertLine("r", outputItem, speed);
                 outputs.push(line);
             });
-            var line = tree.insertLine("r", item, production.relativeSpeed, outputs);
+            var line = model.insertLine("r", item, production.relativeSpeed, outputs);
             data.push(line);
         });
         return data;
     },
 
     insertLine : function(type, item, speed, children) {
-        tree.id ++;
-        var uniqueId = type + "_" + tree.id;
+        model.id ++;
+        var uniqueId = type + "_" + model.id;
         var line =  { id: uniqueId, name: helpers.getName(item), item: item, relativeSpeed: speed, open: true, data: children };
-        tree.treeLines[uniqueId] = line;
+        model.treeLines[uniqueId] = line;
         return line;
     }
 

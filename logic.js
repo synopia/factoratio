@@ -51,7 +51,7 @@ var logic = {
 
         $$("recipe_tree").attachEvent("onAfterEditStop", function(state, id, ignoreUpdate) {
             if( state.value != state.old ) {
-                var line = tree.treeLines[id.row];
+                var line = model.treeLines[id.row];
                 line.factorySpeed = logic.calcSpeed(line.item, line.factory, line.inputInserters, line.outputInserters);
             }
         });
@@ -84,9 +84,12 @@ var logic = {
 
     optimize : function() {
         $$("recipe_tree").eachRow( function(id){
-            var line = tree.treeLines[id];
+            var line = model.treeLines[id];
             var item = line.item;
             var factories = helpers.findFactories(item);
+            if( factories.length==0 ) {
+                return
+            }
             var configurations = [];
             $.each(factories, function(index, factory){
                 $.each(inserters, function(index, inserter) {
@@ -143,7 +146,7 @@ var logic = {
         return selectedInserters;
     },
     selectFactories : function(id) {
-        var item = tree.treeLines[id.row].item;
+        var item = model.treeLines[id.row].item;
         var factories = helpers.findFactories(item);
         var selectableFactories = [];
         var itemSpeed = 1;
@@ -166,9 +169,9 @@ var logic = {
     },
 
     updateRecipe : function(recipe) {
-        tree.init();
-        var recipeTree = [ tree.buildProductionTree(null, recipe, 1) ];
-        var ratioTree = tree.buildRatioTree();
+        model.init();
+        var recipeTree = [ model.buildProductionTree(null, recipe, 1) ];
+        var ratioTree = model.buildRatioTree();
 
         $$("recipe_tree").clearAll();
         $$("recipe_tree").parse(recipeTree);
@@ -183,7 +186,7 @@ var logic = {
             logic.targetSpeed = targetSpeed / 60;
         }
         $$("recipe_tree").eachRow( function(id){
-            var line = tree.treeLines[id];
+            var line = model.treeLines[id];
             line.targetSpeed = logic.targetSpeed * line.relativeSpeed;
         }, true);
         $$("recipe_tree").refresh();

@@ -68,14 +68,17 @@ var ui_scheme = {
                         view: "treetable",
                         id: "ratio_tree",
                         columns: [
-                            {id: "speed", header: "u/m", format: helpers.speedFormat(), width: 100},
+                            {id: "speed", header: "u/m", format: helpers.speedFormat, width: 100},
                             {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300},
-                            {id: "count", header: "Count", format: helpers.countFormat, width: 100 },
-                            {id: "factory", header: "Factory", template: logic.renderFactory, fillspace: true }
+                            {id: "count", header: "Count", format: logic.renderCount, width: 100 },
+                            {id: "factorySpeed", header: "u/m/factory",  format: helpers.speedFormat, width: 100},
+                            {id: "factory", header: "Factory",  editor: 'myselect', width: 300, template: helpers.renderFactory, options:logic.selectFactories},
+                            {id: "inputInserters", header: "Input inserters",  editor: 'myselect', width: 300, template: helpers.renderInputInserters, options:logic.selectInserters},
+                            {id: "outputInserters", header: "Output inserters",  editor: 'myselect', width: 300, template: helpers.renderOutputInserters, options:logic.selectInserters}
                         ]
                     }
                 }
             ]
         }
     ]
-}
+};
