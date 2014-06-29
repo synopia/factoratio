@@ -45,7 +45,7 @@ var ui_scheme = {
                     }
                 },
                 {
-                    view : "button", value: "Setup"
+                    view : "button", value: "Setup", popup: "setup"
                 }
             ]
         },
@@ -95,4 +95,68 @@ var ui_scheme = {
             ]
         }
     ]
+};
+
+function buildData(factories, categories) {
+    var result = [];
+    $.each(factories, function(index, factory) {
+        var found = false;
+        if( categories ) {
+            for (var i = 0; i < factory.categories.length; i++) {
+                var category = factory.categories[i];
+                if (categories.indexOf(category) != -1) {
+                    found = true;
+                    break;
+                }
+            }
+        } else {
+            found = true
+        }
+        if( found ) {
+            result.push({ id: factory.id, name: factory.name, checked: true})
+        }
+    });
+    result.sort( function(a,b){
+        return a.name.localeCompare(b.name)
+    });
+    return result;
+}
+
+var selectableData = []
+selectableData.push({
+    name: "Assembling Machines",
+    open: true,
+    data : buildData(factories, ["crafting"])
+});
+selectableData.push({
+    name: "Mining",
+    data : buildData(factories, ["stone_mining", "iron_mining"])
+});
+selectableData.push({
+    name: "Smelting",
+    data : buildData(factories, ["smelting"])
+});
+selectableData.push({
+    name: "Fluid",
+    data : buildData(factories, ["oil-processing", "fluid", "chemistry"])
+});
+selectableData.push({
+    name: "Inserters",
+    data : buildData(inserters)
+});
+
+var ui_setup = {
+    view: "popup",
+    id: "setup",
+    position: "center",
+    width: 600,
+    height: 400,
+    body : {
+        view: "tree",
+        id: "setup_tree",
+        threeState: true,
+        editable: true,
+        template: "{common.icon()} {common.checkbox()} {common.folder()} #name#",
+        data: selectableData
+    }
 };

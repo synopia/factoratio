@@ -78,7 +78,7 @@ factories =
     },
     "burner_mining_drill_stone": {
         "id": "burner_mining_drill_stone",
-        "name": "Burner Mining Drill",
+        "name": "Burner Mining Drill (Stone)",
         "speed": 0.3333333333,
         "categories": [
             "stone_mining"
@@ -86,7 +86,7 @@ factories =
     },
     "burner_mining_drill_iron": {
         "id": "burner_mining_drill_iron",
-        "name": "Burner Mining Drill",
+        "name": "Burner Mining Drill (Iron)",
         "speed": 0.2857142857,
         "categories": [
             "iron_mining"
@@ -94,7 +94,7 @@ factories =
     },
     "basic_mining_drill_stone": {
         "id": "basic_mining_drill_stone",
-        "name": "Electric Mining Drill",
+        "name": "Electric Mining Drill (Stone)",
         "speed": 0.6666666667,
         "categories": [
             "stone_mining"
@@ -102,7 +102,7 @@ factories =
     },
     "basic_mining_drill_iron": {
         "id": "basic_mining_drill_iron",
-        "name": "Electric Mining Drill",
+        "name": "Electric Mining Drill (Iron)",
         "speed": 0.5714285714,
         "categories": [
             "iron_mining"

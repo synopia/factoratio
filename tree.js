@@ -129,15 +129,25 @@ function Tree(name) {
     }
 
     this.optimizeLine = function(line) {
+        var selectedIds = $$("setup_tree").getChecked();
+        function filter( list ) {
+            var result = [];
+            $.each(list, function(index, item){
+                if( selectedIds.indexOf(item.id)!=-1 ) {
+                    result.push(item)
+                }
+            });
+            return result
+        }
         var item = line.item;
         var usableFactories = getUsable("factory", line, factories, function(line) {
-            return helpers.findFactories(line.item);
+            return filter(helpers.findFactories(line.item));
         });
         var usableInputInserters = getUsable("inputInserters", line, inserters, function(line) {
-            return inserters;
+            return filter(inserters);
         });
         var usableOutputInserters = getUsable("outputInserters", line, inserters, function(line) {
-            return inserters;
+            return filter(inserters);
         });
         var configurations = getConfigurations(usableFactories, usableInputInserters, usableOutputInserters, item);
         if( configurations.length>0 ) {
