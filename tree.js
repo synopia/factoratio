@@ -12,13 +12,17 @@ function Tree(name) {
     this.webixTree.attachEvent("onAfterEditStop", function(state, id, ignoreUpdate) {
         var line = model.treeLines[id.row];
         if( state.value != state.old ) {
-            line.factoryModified = true;
+            setModified(line, id, true);
             line.factorySpeed = tree.calcSpeed(line.item, line.factory, line.inputInserters, line.outputInserters);
         } else {
-            line.factoryModified = true;
+            setModified(line, id, false);
             tree.webixTree.refresh()
         }
     });
+
+    function setModified(line, id, modified) {
+        line[id.column+"Modified"] = modified
+    }
 
     this.calcSpeed = function(item, factory, inputInserters, outputInserters) {
         var itemSpeed = 1;
@@ -58,63 +62,102 @@ function Tree(name) {
     this.optimize = function() {
         tree.webixTree.eachRow( function(id){
             var line = model.treeLines[id];
-            if( !line.factoryModified ) {
-                tree.optimizeLine(line);
-            }
+            tree.optimizeLine(line);
         }, true);
         tree.webixTree.refresh();
     };
 
-    this.optimizeLine = function(line) {
-        var item = line.item;
-        var factories = helpers.findFactories(item);
-        if( factories.length==0 ) {
-            return
-        }
-        var configurations = [];
-        $.each(factories, function(index, factory){
-            $.each(inserters, function(index, inserter) {
-                if( inserter.id.indexOf("inserter")!=-1) {
-                    var speed = tree.calcSpeed(item, factory.id, inserter.id, inserter.id)
-                    configurations.push({ speed: speed, factory: factory, inserter:inserter});
-                }
-            });
-        });
-        configurations.sort( function(a,b){
+    function sortConfiguration(configurations) {
+        configurations.sort(function (a, b) {
             var cmp = b.speed.total - a.speed.total;
-            if( cmp==0 ) {
+            if (cmp == 0) {
                 cmp = b.speed.factory - a.speed.factory;
-                if( cmp==0 ) {
+                if (cmp == 0) {
                     cmp = b.speed.input - a.speed.input;
+                    if (cmp == 0) {
+                        cmp = b.speed.output - a.speed.output
+                    }
                 }
             }
             return cmp;
         });
+    }
+
+    function getConfigurations(factories, inputInserters, outputInserters, item) {
+        var configurations = [];
+        $.each(factories, function (index, factory) {
+            $.each(inputInserters, function (index, inputInserter) {
+                $.each(outputInserters, function (index, outputInserter) {
+                    if (inputInserter.id.indexOf("inserter") != -1 && outputInserter.id.indexOf("inserter") != -1) {
+                        var speed = tree.calcSpeed(item, factory.id, inputInserter.id, outputInserter.id);
+                        configurations.push({ speed: speed, factory: factory, input: inputInserter, output: outputInserter});
+                    }
+                });
+            });
+        });
+        sortConfiguration(configurations);
+        return configurations;
+    }
+
+    function removeEqualSpeeds(configurations) {
         var last = null;
         var list = [];
-        $.each( configurations, function(index, conf) {
-            if( last!=null ) {
-                if( conf.speed!=last.speed) {
+        $.each(configurations, function (index, conf) {
+            if (last != null) {
+                if (conf.speed.total != last.speed.total) {
                     list.push(last)
                 }
             }
             last = conf;
         });
         list.push(last);
+        return list;
+    }
+
+    function findBestConfiguration(list, line) {
         var best = null;
-        $.each(list, function(index, conf) {
+        $.each(list, function (index, conf) {
             var count = line.targetSpeed / conf.speed.total;
-            if( count<=1 ) {
+            if (count <= 1) {
                 best = conf
             }
         });
-        if( best==null ) {
+        if (best == null) {
             best = list[0]
         }
-        line.factory = best.factory.id;
-        line.inputInserters = best.inserter.id;
-        line.outputInserters = best.inserter.id;
-        line.factorySpeed = tree.calcSpeed(line.item, line.factory, line.inputInserters, line.outputInserters);
+        return best;
+    }
 
+    this.optimizeLine = function(line) {
+        var item = line.item;
+        var usableFactories = getUsable("factory", line, factories, function(line) {
+            return helpers.findFactories(line.item);
+        });
+        var usableInputInserters = getUsable("inputInserters", line, inserters, function(line) {
+            return inserters;
+        });
+        var usableOutputInserters = getUsable("outputInserters", line, inserters, function(line) {
+            return inserters;
+        });
+        var configurations = getConfigurations(usableFactories, usableInputInserters, usableOutputInserters, item);
+        if( configurations.length>0 ) {
+            var list = removeEqualSpeeds(configurations);
+            var best = findBestConfiguration(list, line);
+
+            line.factory = best.factory.id;
+            line.inputInserters = best.input.id;
+            line.outputInserters = best.output.id;
+            line.factorySpeed = best.speed;
+        }
+    }
+
+    function getUsable(what, line, collection, callback) {
+        var result;
+        if( line[what+"Modified"] ) {
+            result = [collection[line[what]]]
+        } else {
+            result = callback(line)
+        }
+        return result;
     }
 }

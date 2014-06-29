@@ -5,7 +5,7 @@
 var tooltips = {
     count : function( line ) {
         if( line.factorySpeed ) {
-            var count = line.targetSpeed / line.factorySpeed;
+            var count = line.targetSpeed / line.factorySpeed.total;
             return helpers.countFormat(count) + " "+factories[line.factory].name+" needed<br>to get "+helpers.speedFormat(line.targetSpeed)+" u/m "+line.name+" ";
         } else {
             return false
@@ -14,9 +14,9 @@ var tooltips = {
     factorySpeed: function( line ) {
         if( line.factorySpeed ) {
             var result = helpers.speedFormat(line.factorySpeed)+" u/m "+line.name+" output using:<br>";
-            result += factories[line.factory].name+": max "+helpers.speedFormat(line.factorySpeed.factory)+" u/m <br>";
-            result += inserters[line.inputInserters].name+" for "+line.factorySpeed.inputCount+" inputs: max "+helpers.speedFormat(line.factorySpeed.input)+" u/m<br>";
-            result += inserters[line.outputInserters].name+" for "+line.factorySpeed.outputCount+" outputs: max "+helpers.speedFormat(line.factorySpeed.output)+" u/m<br>";
+            result += "1x "+factories[line.factory].name+": max "+helpers.speedFormat(line.factorySpeed.factory)+" u/m <br>";
+            result += "1x "+inserters[line.inputInserters].name+" for "+line.factorySpeed.inputCount+" inputs: max "+helpers.speedFormat(line.factorySpeed.input)+" u/m<br>";
+            result += "1x "+inserters[line.outputInserters].name+" for "+line.factorySpeed.outputCount+" outputs: max "+helpers.speedFormat(line.factorySpeed.output)+" u/m<br>";
             return result
         } else {
             return false

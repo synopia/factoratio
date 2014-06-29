@@ -67,7 +67,6 @@ var ui_scheme = {
                             {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300, tooltip: false},
                             {id: "count", header: "Count", template: logic.renderCount, width: 100, tooltip: tooltips.count },
                             {id: "factorySpeed", header: "u/m/factory",  format: helpers.speedFormat, width: 100, tooltip: tooltips.factorySpeed},
-                            {id: "factoryModified", header: "",  editor: 'checkbox', width: 50, template:"{common.checkbox()}", tooltip: false },
                             {id: "factory", header: "Factory",  editor: 'myselect', width: 300, template: helpers.renderFactory, options:logic.selectFactories, tooltip: tooltips.factory},
                             {id: "inputInserters", header: "Input inserters",  editor: 'myselect', width: 300, template: helpers.renderInputInserters, options:logic.selectInserters, tooltip: tooltips.inputInserters},
                             {id: "outputInserters", header: "Output inserters",  editor: 'myselect', width: 300, template: helpers.renderOutputInserters, options:logic.selectInserters, tooltip: tooltips.outputInserters}
@@ -87,7 +86,6 @@ var ui_scheme = {
                             {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300, tooltip: false},
                             {id: "count", header: "Count", template: logic.renderCount, width: 100, tooltip: tooltips.count },
                             {id: "factorySpeed", header: "u/m/factory",  format: helpers.speedFormat, width: 100, tooltip: tooltips.factorySpeed},
-                            {id: "factoryModified", header: "",  editor: 'checkbox', width: 50, template:"{common.checkbox()}", tooltip: false },
                             {id: "factory", header: "Factory",  editor: 'myselect', width: 300, template: helpers.renderFactory, options:logic.selectFactories, tooltip: tooltips.factory},
                             {id: "inputInserters", header: "Input inserters",  editor: 'myselect', width: 300, template: helpers.renderInputInserters, options:logic.selectInserters, tooltip: tooltips.inputInserters},
                             {id: "outputInserters", header: "Output inserters",  editor: 'myselect', width: 300, template: helpers.renderOutputInserters, options:logic.selectInserters, tooltip: tooltips.outputInserters}

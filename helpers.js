@@ -27,23 +27,32 @@ var helpers = {
         digits = digits || 2;
         return +(total * number).toFixed(digits).toString();
     },
+
+    formatModified : function formatModified(text, mod) {
+        if( mod ) {
+            return "<"+mod+">"+text+"</"+mod+">"
+        } else {
+            return text;
+        }
+    },
+
     renderFactory : function( line, common ) {
         if( line.factory ) {
-            return factories[line.factory].name;
+            return helpers.formatModified(factories[line.factory].name, line.factoryModified ? "strong" : null)
         } else {
             return "";
         }
     },
     renderInputInserters: function( line, common ) {
         if( line.inputInserters ) {
-            return inserters[line.inputInserters].name;
+            return helpers.formatModified(inserters[line.inputInserters].name,line.inputInsertersModified ? "strong" : null);
         } else {
             return "";
         }
     },
     renderOutputInserters: function( line, common ) {
         if( line.outputInserters ) {
-            return inserters[line.outputInserters].name;
+            return helpers.formatModified(inserters[line.outputInserters].name,line.outputInsertersModified ? "strong" : null);
         } else {
             return "";
         }
