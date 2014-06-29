@@ -13,6 +13,7 @@ selectRecipes.sort(function (a, b) {
 
 var helpers = {
     speedFormat : function(value) {
+        value = value || 0;
         if( value.total ) {
             value = value.total
         }
@@ -35,7 +36,25 @@ var helpers = {
             return text;
         }
     },
+    renderSpeed : function( line, common ) {
+        return helpers.speedFormat(line.targetSpeed)
+    },
+    renderSpeedRatio : function( line, common ) {
+        if( line.$level==1 ) {
+            return helpers.renderSpeed(line, common)
+        } else {
+            return helpers.formatNumber(line.relativeSpeed, 100, 0)+"%"
+        }
+    },
 
+    renderCount : function(line, common) {
+        if( line.factorySpeed ) {
+            var count = line.targetSpeed / line.factorySpeed.total;
+            return helpers.countFormat(count);
+        } else {
+            return ""
+        }
+    },
     renderFactory : function( line, common ) {
         if( line.factory ) {
             return helpers.formatModified(factories[line.factory].name, line.factoryModified ? "strong" : null)

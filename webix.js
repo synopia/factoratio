@@ -65,7 +65,7 @@ var ui_scheme = {
                         columns: [
                             {id: "targetSpeed", header: "u/m", format: helpers.speedFormat, width: 100, tooltip: false},
                             {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300, tooltip: false},
-                            {id: "count", header: "Count", template: logic.renderCount, width: 100, tooltip: tooltips.count },
+                            {id: "count", header: "Count", template: helpers.renderCount, width: 100, tooltip: tooltips.count },
                             {id: "factorySpeed", header: "u/m/factory",  format: helpers.speedFormat, width: 100, tooltip: tooltips.factorySpeed},
                             {id: "factory", header: "Factory",  editor: 'myselect', width: 300, template: helpers.renderFactory, options:logic.selectFactories, tooltip: tooltips.factory},
                             {id: "inputInserters", header: "Input inserters",  editor: 'myselect', width: 300, template: helpers.renderInputInserters, options:logic.selectInserters, tooltip: tooltips.inputInserters},
@@ -82,9 +82,9 @@ var ui_scheme = {
                         editaction: 'click',
                         tooltip: true,
                         columns: [
-                            {id: "targetSpeed", header: "u/m", format: helpers.speedFormat, width: 100, tooltip: false},
+                            {id: "targetSpeed", header: "u/m", template: helpers.renderSpeedRatio, width: 100, tooltip: false},
                             {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300, tooltip: false},
-                            {id: "count", header: "Count", template: logic.renderCount, width: 100, tooltip: tooltips.count },
+                            {id: "count", header: "Count", template: helpers.renderCount, width: 100, tooltip: tooltips.count },
                             {id: "factorySpeed", header: "u/m/factory",  format: helpers.speedFormat, width: 100, tooltip: tooltips.factorySpeed},
                             {id: "factory", header: "Factory",  editor: 'myselect', width: 300, template: helpers.renderFactory, options:logic.selectFactories, tooltip: tooltips.factory},
                             {id: "inputInserters", header: "Input inserters",  editor: 'myselect', width: 300, template: helpers.renderInputInserters, options:logic.selectInserters, tooltip: tooltips.inputInserters},

@@ -62,7 +62,9 @@ function Tree(name) {
     this.optimize = function() {
         tree.webixTree.eachRow( function(id){
             var line = model.treeLines[id];
-            tree.optimizeLine(line);
+            if( name!="ratio_tree" || line.$level==1) {
+                tree.optimizeLine(line);
+            }
         }, true);
         tree.webixTree.refresh();
     };
@@ -158,6 +160,8 @@ function Tree(name) {
             line.inputInserters = best.input.id;
             line.outputInserters = best.output.id;
             line.factorySpeed = best.speed;
+        } else {
+            console.log(line)
         }
     }
 

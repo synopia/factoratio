@@ -75,14 +75,6 @@ var logic = {
         return selectableFactories;
     },
 
-    renderCount : function(line, common) {
-        if( line.factorySpeed ) {
-            var count = line.targetSpeed / line.factorySpeed.total;
-            return helpers.countFormat(count);
-        } else {
-            return ""
-        }
-    },
 
     addRecipe : function(recipe) {
         logic.recipes.push(recipe);
