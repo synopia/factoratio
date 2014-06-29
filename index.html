@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Factoratio</title>
     <link rel="stylesheet" href="webix/codebase/webix.css" type="text/css"/>
     <script src="webix/codebase/webix_debug.js" type="text/javascript"></script>
     <script src="jquery-2.1.1.js" type="text/javascript"></script>
@@ -15,16 +15,7 @@
     <script src="tree.js" type="text/javascript"></script>
     <script src="logic.js" type="text/javascript"></script>
     <script src="webix.js" type="text/javascript"></script>
-</head>
-<body>
     <script type="text/javascript" charset="utf-8">
-        webix.ready(function(){
-            webix.ui(ui_scheme);
-            logic.init();
-            $$("selected_recipe").setValue("science_pack_1");
-            $$("selected_recipe_speed").setValue(18);
-        });
-
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33902092-1']);
         _gaq.push(['_trackPageview']);
@@ -34,6 +25,16 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+    </script>
+<head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        webix.ready(function(){
+            webix.ui(ui_scheme);
+            logic.init();
+            $$("selected_recipe").setValue("science_pack_1");
+            $$("selected_recipe_speed").setValue(18);
+        });
     </script>
 </body>
 </html>
