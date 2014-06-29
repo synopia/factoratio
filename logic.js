@@ -53,12 +53,6 @@ var logic = {
         logic.ratioTree = new Tree("ratio_tree");
     },
 
-
-    optimize : function() {
-        logic.recipeTree.optimize();
-        logic.ratioTree.optimize();
-    },
-
     selectInserters: function(id) {
         var selectedInserters = [];
         $.each(inserters, function(index, inserter) {

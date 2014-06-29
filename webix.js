@@ -45,9 +45,6 @@ var ui_scheme = {
                     }
                 },
                 {
-                    view : "button", value: "Optimize", click: logic.optimize
-                },
-                {
                     view : "button", value: "Setup"
                 }
             ]
@@ -64,11 +61,15 @@ var ui_scheme = {
                         id: "recipe_tree",
                         editable: true,
                         editaction: 'click',
+                        tooltip: true,
                         columns: [
-                            {id: "targetSpeed", header: "u/m", format: helpers.speedFormat, width: 100},
+                            {id: "targetSpeed", header: "u/m", format: helpers.speedFormat, width: 100, tooltip: function(line){
+                                return "X"
+                            }},
                             {id: "name", header: "Item", template: "{common.treetable()} #value#", width: 300},
                             {id: "count", header: "Count", template: logic.renderCount, width: 100 },
                             {id: "factorySpeed", header: "u/m/factory",  format: helpers.speedFormat, width: 100},
+                            {id: "factoryModified", header: "",  editor: 'checkbox', width: 50, template:"{common.checkbox()}" },
                             {id: "factory", header: "Factory",  editor: 'myselect', width: 300, template: helpers.renderFactory, options:logic.selectFactories},
                             {id: "inputInserters", header: "Input inserters",  editor: 'myselect', width: 300, template: helpers.renderInputInserters, options:logic.selectInserters},
                             {id: "outputInserters", header: "Output inserters",  editor: 'myselect', width: 300, template: helpers.renderOutputInserters, options:logic.selectInserters}
