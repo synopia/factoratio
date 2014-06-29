@@ -13,6 +13,9 @@ selectRecipes.sort(function (a, b) {
 
 var helpers = {
     speedFormat : function(value) {
+        if( value.total ) {
+            value = value.total
+        }
         return helpers.formatNumber(value, 60, 2);
     },
     countFormat : function(value) {

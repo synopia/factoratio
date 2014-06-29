@@ -56,7 +56,7 @@ var logic = {
     selectInserters: function(id) {
         var selectedInserters = [];
         $.each(inserters, function(index, inserter) {
-            selectedInserters.push({ id: inserter.id, value:inserter.name});
+            selectedInserters.push({ id: inserter.id, value:inserter.name+" ("+helpers.formatNumber(inserter.speed*60, 60)+" u/m)"});
         });
         return selectedInserters;
     },
@@ -77,7 +77,7 @@ var logic = {
 
     renderCount : function(line, common) {
         if( line.factorySpeed ) {
-            var count = line.targetSpeed / line.factorySpeed;
+            var count = line.targetSpeed / line.factorySpeed.total;
             return helpers.countFormat(count);
         } else {
             return ""

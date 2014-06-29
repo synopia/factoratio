@@ -39,7 +39,9 @@ function Tree(name) {
             var maxInputSpeed = (inputInserters ? inserters[inputInserters].speed*60 : 1000000)/inputCount;
             var maxOutputSpeed = (outputInserters ? inserters[outputInserters].speed*60 : 1000000)/outputCount;
             var maxSpeed = Math.min(maxInputSpeed, maxOutputSpeed);
-            return Math.min(factories[factory].speed*itemSpeed, maxSpeed);
+            var factorySpeed = factories[factory].speed * itemSpeed;
+            var total = Math.min(factorySpeed, maxSpeed);
+            return { total: total, factory: factorySpeed, input: maxInputSpeed, output: maxOutputSpeed, inputCount: inputCount, outputCount: outputCount };
         } else {
             return undefined;
         }
@@ -79,11 +81,11 @@ function Tree(name) {
             });
         });
         configurations.sort( function(a,b){
-            var cmp = b.speed - a.speed;
+            var cmp = b.speed.total - a.speed.total;
             if( cmp==0 ) {
-                cmp = b.factory.speed - a.factory.speed;
+                cmp = b.speed.factory - a.speed.factory;
                 if( cmp==0 ) {
-                    cmp = b.inserter.speed - a.inserter.speed;
+                    cmp = b.speed.input - a.speed.input;
                 }
             }
             return cmp;
@@ -101,7 +103,7 @@ function Tree(name) {
         list.push(last);
         var best = null;
         $.each(list, function(index, conf) {
-            var count = line.targetSpeed / conf.speed;
+            var count = line.targetSpeed / conf.speed.total;
             if( count<=1 ) {
                 best = conf
             }
