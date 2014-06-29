@@ -86,7 +86,7 @@ factories =
     },
     "burner_mining_drill_iron": {
         "id": "burner_mining_drill_iron",
-        "name": "Burner Mining Drill (Iron)",
+        "name": "Burner Mining Drill",
         "speed": 0.2857142857,
         "categories": [
             "iron_mining"
@@ -102,7 +102,7 @@ factories =
     },
     "basic_mining_drill_iron": {
         "id": "basic_mining_drill_iron",
-        "name": "Electric Mining Drill (Iron)",
+        "name": "Electric Mining Drill",
         "speed": 0.5714285714,
         "categories": [
             "iron_mining"
