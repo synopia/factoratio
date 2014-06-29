@@ -1,4 +1,4 @@
-    factories =
+factories = 
 {
     "oil_refinery": {
         "id": "oil_refinery",

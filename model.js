@@ -46,16 +46,16 @@ var model = {
                 var line = model.insertLine("r", outputItem, speed);
                 outputs.push(line);
             });
-            var line = model.insertLine("r", item, production.relativeSpeed, outputs);
+            var line = model.insertLine("r", item, production.relativeSpeed, outputs, false);
             data.push(line);
         });
         return data;
     },
 
-    insertLine : function(type, item, speed, children) {
+    insertLine : function(type, item, speed, children, open) {
         model.id ++;
         var uniqueId = type + "_" + model.id;
-        var line =  { id: uniqueId, name: helpers.getName(item), item: item, relativeSpeed: speed, open: true, data: children };
+        var line =  { id: uniqueId, name: helpers.getName(item), item: item, relativeSpeed: speed, open: open == undefined ? true : open, data: children };
         model.treeLines[uniqueId] = line;
         return line;
     }

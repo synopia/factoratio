@@ -46,6 +46,7 @@ var logic = {
     editingId : null,
     ratioTree : null,
     recipeTree : null,
+    recipes : [],
 
     init: function() {
         logic.recipeTree = new Tree("recipe_tree");
@@ -89,9 +90,29 @@ var logic = {
         }
     },
 
-    updateRecipe : function(recipe) {
+    addRecipe : function(recipe) {
+        logic.recipes.push(recipe);
+        logic.updateRecipes();
+    },
+
+    removeRecipe : function(recipe) {
+        var index = logic.recipes.indexOf(recipe);
+        if( index!=-1 ) {
+            logic.recipes.splice(index)
+            logic.updateRecipes();
+        }
+    },
+
+    reset : function() {
+        logic.recipes = [];
+        logic.updateRecipes();
+    },
+
+    updateRecipes : function() {
         model.init();
-        var recipeTree = [ model.buildProductionTree(null, recipe, 1) ];
+        var recipeTree = $.map(logic.recipes, function(recipe) {
+            return model.buildProductionTree(null, recipe, 1);
+        });
         var ratioTree = model.buildRatioTree();
 
         $$("recipe_tree").clearAll();

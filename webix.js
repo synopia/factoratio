@@ -10,12 +10,7 @@ var ui_scheme = {
             cols : [
                 {
                     view: "select", label: "Recipe", options:selectRecipes,
-                    id: "selected_recipe",
-                    on: {
-                        onChange: function(newv, oldv) {
-                            logic.updateRecipe(newv);
-                        }
-                    }
+                    id: "selected_recipe"
                 },
                 {
                     view: "slider", min:1, max:120,
@@ -35,7 +30,25 @@ var ui_scheme = {
         {
             cols : [
                 {
+                    view : "button", value: "+", click:function() {
+                        logic.addRecipe($$("selected_recipe").getValue());
+                    }
+                },
+                {
+                    view : "button", value: "-", click:function() {
+                        logic.removeRecipe($$("selected_recipe").getValue());
+                    }
+                },
+                {
+                    view : "button", value: "Reset", click : function () {
+                        logic.reset();
+                    }
+                },
+                {
                     view : "button", value: "Optimize", click: logic.optimize
+                },
+                {
+                    view : "button", value: "Setup"
                 }
             ]
         },
