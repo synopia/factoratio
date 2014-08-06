@@ -111,7 +111,8 @@ var logic = {
 
     updateTargetSpeed : function( targetSpeed ) {
         if( targetSpeed ) {
-            logic.targetSpeed = targetSpeed / 60;
+            var timeExponent = $$("selected_unit").getValue();
+            logic.targetSpeed = targetSpeed / Math.pow(60, timeExponent);
         }
         logic.recipeTree.updateTargetSpeed();
         logic.ratioTree.updateTargetSpeed();
