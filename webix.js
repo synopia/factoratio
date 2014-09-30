@@ -15,13 +15,41 @@ var ui_scheme = {
                 {
                     view: "slider", min:1, max:120,
                     id: "selected_recipe_speed",
-                    title:webix.template("#value# u/m"),
+                    title:webix.template("#value#"),
                     on: {
                         onChange: function(newv, oldv) {
                             logic.updateTargetSpeed(newv);
                         },
                         onSliderDrag: function () {
                             logic.updateTargetSpeed(this.getValue());
+                        }
+                    }
+                },
+                {
+                    view: "text",
+                    id: "selected_recipe_speed_overwrite",
+                    width: 200,
+                    placeholder: "Overwrite Speed",
+                    tooltip: "Fill this Textfield to overwrite the Slider to the left, to use the slider again just clear all text out of this Textfield",
+                    on: {
+                        onChange: function(newv, oldv) {
+                            if (newv && webix.rules.isNumber(newv)) {
+                                logic.updateTargetSpeed(newv);
+                            } else {
+                                logic.updateTargetSpeed($$("selected_recipe_speed").getValue());
+                            }
+                        }
+                    }
+                },
+                {
+                    view: "select",
+                    id: "selected_unit",
+                    options: [{id:0, value:"u/h"}, {id:1, value:"u/m"}, {id:2, value:"u/s"}],
+                    value:1,
+                    width: 100,
+                    on: {
+                        onChange: function(newv, oldv) {
+                            logic.updateTargetSpeed($$("selected_recipe_speed").getValue());
                         }
                     }
                 }
